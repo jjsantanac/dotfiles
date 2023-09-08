@@ -1,0 +1,2 @@
+require("cactus")
+print("hello")
