@@ -13,6 +13,9 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   use({ 'rebelot/kanagawa.nvim', as = 'kanagawa', config=function() vim.cmd("colorscheme kanagawa") end})
+  --use({ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {}, config=function() vim.cmd[[colorscheme tokyonight-night]] end})
+  --use({ 'rose-pine/neovim', as = 'rose-pine',  config=function() vim.cmd("colorscheme rose-pine")end})
+
 
   use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
   

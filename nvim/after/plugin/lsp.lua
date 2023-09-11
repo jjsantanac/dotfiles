@@ -18,6 +18,8 @@ lsp.ensure_installed({
   'rust_analyzer',
   'angularls@14.0.0',
   "html",
+  "pylsp",
+  "cssls"
 })
 
 
