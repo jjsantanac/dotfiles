@@ -19,8 +19,17 @@ lsp.ensure_installed({
   'angularls@14.0.0',
   "html",
   "pylsp",
-  "cssls"
+  "cssls",
+  "jsonls"
 })
 
 
 lsp.setup()
+
+local cmp = require('cmp')
+
+cmp.setup({
+  mapping = {
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+  }
+})
