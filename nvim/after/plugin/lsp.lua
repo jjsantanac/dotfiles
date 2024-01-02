@@ -1,35 +1,48 @@
 local lsp = require('lsp-zero').preset({
-	name = 'recommended',
-	set_lsp_keymaps = false,
-	suggest_lsp_servers = false,
-	sign_icons = false})
+  name = 'recommended',
+  set_lsp_keymaps = false,
+  suggest_lsp_servers = false,
+  sign_icons = false
+})
 
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
-
+  lsp.default_keymaps({ buffer = bufnr })
 end)
 
-lsp.ensure_installed({
-  -- Replace these with whatever servers you want to install
-  'tsserver',
-  'eslint',
-  'rust_analyzer',
-  'angularls@14.0.0',
-  "html",
-  "pylsp",
-  "cssls",
-  "jsonls"
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'lua_ls',
+    'tsserver',
+    'eslint',
+    'rust_analyzer',
+    'angularls@14.0.0',
+    "html",
+    "pylsp",
+    "cssls",
+    "jsonls"
+  },
+  handlers = {
+    lsp.default_setup,
+    -- lua_ls = function()
+    --   local lua_opts = lsp.nvim_lua_ls()
+    --   require('lspconfig').lua_ls.setup(lua_opts)
+    -- end,
+    -- tsserver = function()
+    --   require('lspconfig').tsserver.setup({})
+    -- end,
+    -- eslint = function()
+    --   require('lspconfig').eslint.setup({})
+    -- end,
+  }
 })
-
-
-lsp.setup()
 
 local cmp = require('cmp')
 
 cmp.setup({
   mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }
 })
