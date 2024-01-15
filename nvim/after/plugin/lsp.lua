@@ -22,8 +22,9 @@ require('mason-lspconfig').setup({
     "html",
     "pylsp",
     "cssls",
-    "jsonls"
+    "jsonls",
   },
+
   handlers = {
     lsp.default_setup,
     -- lua_ls = function()
@@ -46,3 +47,11 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }
 })
+-- vim.diagnostic.config({
+--   update_in_insert = true,
+--   -- float = {
+--   --   focusable = false,
+--   --   style = "minimal",
+--   --   border = "rounded"
+--   -- }
+-- })

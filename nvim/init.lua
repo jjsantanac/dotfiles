@@ -7,6 +7,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
+vim.api.nvim_set_option('clipboard', 'unnamedplus')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
