@@ -1,0 +1,27 @@
+import = ["~/.config/alacritty/themes/kanagawa_wave.toml"]
+# import = ["~/.config/alacritty/themes/dracula.toml"]
+# import = ["~/.config/alacritty/themes/sonokai_andromeda.toml"]
+# import = ["~/.config/alacritty/themes/catppuccin_mocha.toml"]
+[env]
+term = "xterm-256color"
+
+[font]
+size = 12
+
+[font.normal]
+family = "Hack Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+# family = "MesloLGS Nerd Font"
+
+[font.offset]
+# This is some random text to test font offsets
+# This is also some random text to test font offsets
+# This is also some random text to test font offsets
+# y = 5
+
+[window.dimensions]
+columns = 290
+lines = 90
+
+[window.padding]
+x = 5
