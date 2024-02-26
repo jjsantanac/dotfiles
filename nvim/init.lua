@@ -1,3 +1,4 @@
+vim.o.termguicolors = true
 vim.wo.relativenumber = true
 vim.opt.nu = true
 vim.opt.tabstop = 2
@@ -8,6 +9,8 @@ vim.opt.smartindent = true
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.api.nvim_set_option('clipboard', 'unnamedplus')
+
+vim.g.sonokai_style = 'andromeda'
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -21,7 +24,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+-- vim.lsp.set_log_level("debug")
+vim.api.nvim_set_var('mapleader', ' ');
 
 require("lazy").setup("plugins")
-
-

@@ -18,11 +18,11 @@ require('mason-lspconfig').setup({
     'tsserver',
     'eslint',
     'rust_analyzer',
-    'angularls@14.0.0',
-    "html",
+    'angularls@17.1.1',
     "pylsp",
     "cssls",
     "jsonls",
+    "html"
   },
 
   handlers = {
@@ -47,11 +47,11 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }
 })
--- vim.diagnostic.config({
---   update_in_insert = true,
---   -- float = {
---   --   focusable = false,
---   --   style = "minimal",
---   --   border = "rounded"
---   -- }
--- })
+vim.diagnostic.config({
+  update_in_insert = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded"
+  }
+})
