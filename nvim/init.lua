@@ -28,3 +28,4 @@ vim.opt.rtp:prepend(lazypath)
 vim.api.nvim_set_var('mapleader', ' ');
 
 require("lazy").setup("plugins")
+-- vim.cmd [[colorscheme dracula]]

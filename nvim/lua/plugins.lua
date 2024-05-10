@@ -5,16 +5,30 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    "Mofiqul/dracula.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
-  { "sainnhe/sonokai" },
-  { "catppuccin/nvim", name = "catppuccin" },
   {
     "rebelot/kanagawa.nvim",
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    --     priority = 1000,
+    --     config = function()
+    --       vim.cmd [[colorscheme dracula]]
+    --     end
+  },
+  {
+    "EdenEast/nightfox.nvim",
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    opts = {},
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme kanagawa]])
-    end,
+      vim.cmd [[colorscheme tokyonight]]
+    end
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -38,7 +52,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   { "nvim-tree/nvim-web-devicons" },
-  -- { 'romgrk/barbar.nvim' },
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",

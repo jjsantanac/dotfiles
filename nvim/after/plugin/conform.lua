@@ -5,6 +5,7 @@ require("conform").setup({
     typescript = { "prettierd" },
     html = { "prettierd" },
     css = { "prettierd" },
+    less = { "prettierd" },
     rust = { "rustfmt" },
     lua = { "stylua" },
     json = { "prettierd" }
