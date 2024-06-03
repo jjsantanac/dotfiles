@@ -11,25 +11,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
   },
-  {
-    "Mofiqul/dracula.nvim",
-    --     priority = 1000,
-    --     config = function()
-    --       vim.cmd [[colorscheme dracula]]
-    --     end
-  },
-  {
-    "EdenEast/nightfox.nvim",
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    opts = {},
-    priority = 1000,
-    config = function()
-      vim.cmd [[colorscheme tokyonight]]
-    end
-  },
+  { "EdenEast/nightfox.nvim" }, -- lazy
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
