@@ -10,8 +10,6 @@ vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
-vim.g.sonokai_style = "andromeda"
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -23,9 +21,9 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
--- vim.lsp.set_log_level("debug")
 vim.api.nvim_set_var("mapleader", " ")
 
 require("lazy").setup("plugins")
-vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme kanagawa-wave]])

@@ -12,12 +12,6 @@ return {
 		"rebelot/kanagawa.nvim",
 	},
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		opts = {},
-	},
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
@@ -40,21 +34,8 @@ return {
 	},
 	{ "nvim-tree/nvim-web-devicons" },
 	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup({})
-		end,
-	},
-	{
 		"j-hui/fidget.nvim",
-		opts = {
-			-- options
-		},
+		opts = {},
 	},
 	{
 		"ThePrimeagen/harpoon",
@@ -64,5 +45,14 @@ return {
 	{
 		"stevearc/conform.nvim",
 		opts = {},
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
 	},
 }
