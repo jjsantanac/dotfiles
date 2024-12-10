@@ -7,17 +7,24 @@ local act = wezterm.action
 
 config.color_scheme = "Kanagawa (Gogh)"
 config.enable_tab_bar = false
--- config.font = wezterm.font 'Hack Nerd Font'
-config.font_size = 16.0
-config.initial_cols = 290
-config.initial_rows = 90
+config.font_size = 14.0
+-- config.font = wezterm.font({
+-- 	family = "JetBrains Mono",
+-- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+-- })
+config.initial_cols = 500
+config.initial_rows = 100
 config.front_end = "WebGpu"
 config.send_composed_key_when_left_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = true
 config.use_fancy_tab_bar = false
 config.window_decorations = "RESIZE"
+config.window_close_confirmation = "NeverPrompt"
+-- config.line_height = 1.18
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.keys = {
-	-- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
+	{ key = "n", mods = "OPT", action = wezterm.action({ SendString = "~" }) },
 	{
 		key = "LeftArrow",
 		mods = "OPT",
@@ -40,6 +47,11 @@ config.keys = {
 		key = "RightArrow",
 		mods = "CMD",
 		action = wezterm.action({ SendString = "\x1bOF" }),
+	},
+	{
+		key = "Backspace",
+		mods = "CMD",
+		action = act.SendKey({ key = "U", mods = "CTRL" }),
 	},
 }
 
