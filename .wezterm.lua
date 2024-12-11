@@ -7,11 +7,8 @@ local act = wezterm.action
 
 config.color_scheme = "Kanagawa (Gogh)"
 config.enable_tab_bar = false
-config.font_size = 14.0
--- config.font = wezterm.font({
--- 	family = "JetBrains Mono",
--- 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
--- })
+config.font_size = 15.0
+config.line_height = 1.2
 config.initial_cols = 500
 config.initial_rows = 100
 config.front_end = "WebGpu"
@@ -20,7 +17,6 @@ config.send_composed_key_when_right_alt_is_pressed = true
 config.use_fancy_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
--- config.line_height = 1.18
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.keys = {
@@ -28,10 +24,7 @@ config.keys = {
 	{
 		key = "LeftArrow",
 		mods = "OPT",
-		action = act.SendKey({
-			key = "b",
-			mods = "ALT",
-		}),
+		action = act.SendKey({ key = "b", mods = "ALT" }),
 	},
 	{
 		key = "RightArrow",
