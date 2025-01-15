@@ -30,7 +30,18 @@ end
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"lua_ls",
+		"ts_ls",
+		"eslint",
+		"rust_analyzer",
+		"angularls@17.1.1",
+		"pylsp",
+		"cssls",
+		"jsonls",
+		"html",
+		"yamlls",
+	},
 	handlers = {
 		default_setup,
 		lua_ls = function()
