@@ -20,7 +20,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local default_setup = function(server)
 	if server == "rust_analyzer" then
@@ -32,7 +33,7 @@ local default_setup = function(server)
 	end
 
 	require("lspconfig")[server].setup({
-		capabilities = lsp_capabilities,
+		capabilities = blink_capabilities,
 	})
 end
 
@@ -54,7 +55,7 @@ require("mason-lspconfig").setup({
 		default_setup,
 		lua_ls = function()
 			require("lspconfig").lua_ls.setup({
-				capabilities = lsp_capabilities,
+				capabilities = blink_capabilities,
 				settings = {
 					Lua = {
 						runtime = {
@@ -75,22 +76,22 @@ require("mason-lspconfig").setup({
 	},
 })
 
-local cmp = require("cmp")
-
-cmp.setup({
-	sources = {
-		{ name = "nvim_lsp" },
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<CR>"] = cmp.mapping.confirm({ select = false }),
-		["<C-Space>"] = cmp.mapping.complete(),
-	}),
-	snippet = {
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
-})
+-- local cmp = require("cmp")
+--
+-- cmp.setup({
+-- 	sources = {
+-- 		{ name = "nvim_lsp" },
+-- 	},
+-- 	mapping = cmp.mapping.preset.insert({
+-- 		["<CR>"] = cmp.mapping.confirm({ select = false }),
+-- 		["<C-Space>"] = cmp.mapping.complete(),
+-- 	}),
+-- 	snippet = {
+-- 		expand = function(args)
+-- 			require("luasnip").lsp_expand(args.body)
+-- 		end,
+-- 	},
+-- })
 
 vim.diagnostic.config({
 	update_in_insert = true,
