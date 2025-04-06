@@ -10,30 +10,39 @@ dap.configurations.java = {
 		port = "5005",
 	},
 }
+
+dap.adapters.codelldb = {
+	type = "executable",
+	command = "codelldb",
+}
+
 dap.listeners.before.attach.dapui_config = function()
 	dapui.open()
 end
 
+dap.listeners.before.launch.dapui_config = function()
+	dapui.open()
+end
+
 require("dapui").setup({
+	controls = {
+		enabled = false,
+	},
 	layouts = {
 		{
 			elements = {
-				"scopes",
-				-- "breakpoints",
-				-- "stacks",
-				-- "watches",
+				"repl",
 			},
-			size = 25,
+			size = 60,
+			position = "right",
+		},
+		{
+			elements = {
+				"console",
+			},
+			size = 20,
 			position = "bottom",
 		},
-		-- {
-		-- 	elements = {
-		-- 		"repl",
-		-- 		"console",
-		-- 	},
-		-- 	size = 40, -- Adjust the width for vertical splits if needed
-		-- 	position = "right", -- Keep these as vertical splits on the right
-		-- },
 	},
 })
 
@@ -42,5 +51,7 @@ vim.keymap.set("n", "<F6>", dap.continue)
 vim.keymap.set("n", "<F7>", dap.step_into)
 vim.keymap.set("n", "<F8>", dap.step_over)
 vim.keymap.set("n", "<F9>", dap.step_out)
-vim.keymap.set("n", "<F10>", dap.step_back)
+vim.keymap.set("n", "<F10>", function()
+	dapui.float_element("scopes", { enter = true, position = "center" })
+end)
 vim.keymap.set("n", "<F12>", dapui.toggle)

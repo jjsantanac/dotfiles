@@ -23,6 +23,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local default_setup = function(server)
+	if server == "rust_analyzer" then
+		return
+	end
+
+	if server == "jdtls" then
+		return
+	end
+
 	require("lspconfig")[server].setup({
 		capabilities = lsp_capabilities,
 	})
