@@ -6,7 +6,6 @@ require("kanagawa").setup({
 			all = {
 				ui = {
 					bg_gutter = "none",
-					bg_m3 = "#2A2A37",
 				},
 			},
 		},
@@ -14,6 +13,7 @@ require("kanagawa").setup({
 	overrides = function(colors)
 		local theme = colors.theme
 		return {
+			NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 			LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 			MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 			Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
