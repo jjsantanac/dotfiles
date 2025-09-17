@@ -1,7 +1,0 @@
--- require("avante").setup({
--- 	provider = "openai",
--- 	openai = {
--- 		endpoint = os.getenv("OPENAI_ENDPOINT"),
--- 		model = os.getenv("OPENAI_MODEL"),
--- 	},
--- })
