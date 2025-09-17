@@ -20,7 +20,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local default_setup = function(server)
@@ -51,6 +50,11 @@ require("mason-lspconfig").setup({
 		"html",
 		"yamlls",
 	},
+	automatic_enable = {
+		exclude = {
+			"rust_analyzer",
+		},
+	},
 	handlers = {
 		default_setup,
 		lua_ls = function()
@@ -75,23 +79,6 @@ require("mason-lspconfig").setup({
 		end,
 	},
 })
-
--- local cmp = require("cmp")
---
--- cmp.setup({
--- 	sources = {
--- 		{ name = "nvim_lsp" },
--- 	},
--- 	mapping = cmp.mapping.preset.insert({
--- 		["<CR>"] = cmp.mapping.confirm({ select = false }),
--- 		["<C-Space>"] = cmp.mapping.complete(),
--- 	}),
--- 	snippet = {
--- 		expand = function(args)
--- 			require("luasnip").lsp_expand(args.body)
--- 		end,
--- 	},
--- })
 
 vim.diagnostic.config({
 	update_in_insert = true,

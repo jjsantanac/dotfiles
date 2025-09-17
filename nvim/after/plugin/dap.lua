@@ -24,18 +24,12 @@ dap.listeners.before.launch.dapui_config = function()
 	dapui.open()
 end
 
+dap.listeners.after.event_terminated.dapui_config = function()
+	dapui.close()
+end
+
 require("dapui").setup({
-	controls = {
-		enabled = false,
-	},
 	layouts = {
-		{
-			elements = {
-				"repl",
-			},
-			size = 60,
-			position = "right",
-		},
 		{
 			elements = {
 				"console",
@@ -55,3 +49,4 @@ vim.keymap.set("n", "<F10>", function()
 	dapui.float_element("scopes", { enter = true, position = "center" })
 end)
 vim.keymap.set("n", "<F12>", dapui.toggle)
+vim.keymap.set("n", "<F24>", dap.repl.toggle)
