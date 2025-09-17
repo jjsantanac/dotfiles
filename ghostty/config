@@ -1,10 +1,10 @@
 theme = Kanagawa Wave
 font-size = 15
-font-family=Iosevka Term Extended
+font-family=Menlo
 window-height = 200
 window-width = 500
 window-padding-x= 5
 cursor-style = block
 shell-integration-features = no-cursor
-adjust-cell-height = 20%
+adjust-cell-height = 40%
 font-thicken = true
