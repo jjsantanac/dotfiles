@@ -22,63 +22,58 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
-local default_setup = function(server)
-	if server == "rust_analyzer" then
-		return
-	end
+local language_servers = {
+	lua_ls = {
+		on_init = function(client)
+			if client.workspace_folders then
+				local path = client.workspace_folders[1].name
+				if
+					path ~= vim.fn.stdpath("config")
+					and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+				then
+					return
+				end
+			end
 
-	if server == "jdtls" then
-		return
-	end
-
-	require("lspconfig")[server].setup({
-		capabilities = blink_capabilities,
-	})
-end
-
-require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"lua_ls",
-		"ts_ls",
-		"eslint",
-		"rust_analyzer",
-		"angularls@17.1.1",
-		"pylsp",
-		"cssls",
-		"jsonls",
-		"html",
-		"yamlls",
-	},
-	automatic_enable = {
-		exclude = {
-			"rust_analyzer",
-		},
-	},
-	handlers = {
-		default_setup,
-		lua_ls = function()
-			require("lspconfig").lua_ls.setup({
-				capabilities = blink_capabilities,
-				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-						},
-						diagnostics = {
-							globals = { "vim" },
-						},
-						workspace = {
-							library = {
-								vim.env.VIMRUNTIME,
-							},
-						},
+			client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+				runtime = {
+					version = "LuaJIT",
+					path = {
+						"lua/?.lua",
+						"lua/?/init.lua",
+					},
+				},
+				workspace = {
+					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME,
 					},
 				},
 			})
 		end,
+		settings = {
+			Lua = {},
+		},
 	},
-})
+	pyright = {},
+	ruff = {},
+	ts_ls = {},
+	eslint = {},
+	jsonls = {},
+	cssls = {},
+	html = {},
+	yamlls = {},
+}
+
+for server, config in pairs(language_servers) do
+	vim.lsp.config(
+		server,
+		vim.tbl_deep_extend("force", {
+			capabilities = blink_capabilities,
+		}, config)
+	)
+	vim.lsp.enable(server)
+end
 
 vim.diagnostic.config({
 	update_in_insert = true,

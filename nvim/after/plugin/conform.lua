@@ -4,11 +4,10 @@ require("conform").setup({
 		typescript = { "prettierd" },
 		html = { "prettierd" },
 		css = { "prettierd" },
-		less = { "prettierd" },
 		rust = { "rustfmt" },
 		lua = { "stylua" },
 		json = { "prettierd" },
-		java = {},
+		python = { "ruff_format" },
 	},
 	format_on_save = {
 		timeout_ms = 5000,

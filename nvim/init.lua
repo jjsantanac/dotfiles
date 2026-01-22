@@ -27,5 +27,12 @@ vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.api.nvim_set_option_value("clipboard", "unnamedplus", {})
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- automatically check for plugin updates
+	checker = { enabled = true },
+})
 vim.cmd([[colorscheme kanagawa-wave]])

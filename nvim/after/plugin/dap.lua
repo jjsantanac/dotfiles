@@ -1,16 +1,6 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-dap.configurations.java = {
-	{
-		type = "java",
-		request = "attach",
-		name = "Attach debug default",
-		hostName = "localhost",
-		port = "5005",
-	},
-}
-
 dap.adapters.codelldb = {
 	type = "executable",
 	command = "codelldb",
