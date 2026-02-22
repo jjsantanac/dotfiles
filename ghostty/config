@@ -1,6 +1,6 @@
 theme = Kanagawa Wave
-font-size = 15
-font-family=Iosevka Term Extended
+font-size = 16
+font-family=Iosevka Term
 window-height = 200
 window-width = 500
 window-padding-x= 5

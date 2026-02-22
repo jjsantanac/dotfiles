@@ -1,8 +1,9 @@
 return {
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 	{ "mfussenegger/nvim-dap" },
+	{ "mfussenegger/nvim-dap-python" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
 	{ "neovim/nvim-lspconfig" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "tpope/vim-fugitive" },

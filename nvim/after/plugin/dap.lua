@@ -6,6 +6,25 @@ dap.adapters.codelldb = {
 	command = "codelldb",
 }
 
+dap.configurations.python = {
+	{
+		type = "python",
+		request = "attach",
+		name = "Attach remote",
+		connect = {
+			host = "127.0.0.1",
+			port = 5678,
+		},
+		justMyCode = false,
+		pathMappings = {
+			{
+				localRoot = vim.fn.getcwd(),
+				remoteRoot = "/app",
+			},
+		},
+	},
+}
+
 dap.listeners.before.attach.dapui_config = function()
 	dapui.open()
 end
@@ -29,6 +48,8 @@ require("dapui").setup({
 		},
 	},
 })
+
+require("dap-python").setup("uv")
 
 vim.keymap.set("n", "<F5>", dap.toggle_breakpoint)
 vim.keymap.set("n", "<F6>", dap.continue)
