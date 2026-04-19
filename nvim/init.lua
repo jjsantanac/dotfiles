@@ -35,4 +35,34 @@ require("lazy").setup({
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"python",
+		"javascript",
+		"typescript",
+		"typescriptreact",
+		"rust",
+		"lua",
+		"vimdoc",
+		"query",
+		"dockerfile",
+		"html",
+		"css",
+		"json",
+		"bash",
+		"go",
+		"sql",
+		"toml",
+		"yaml",
+		"markdown",
+		"markdown_inline",
+		"gitcommit",
+		"comment",
+		"diff",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
 vim.cmd([[colorscheme kanagawa-wave]])
