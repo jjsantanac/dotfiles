@@ -1,13 +1,15 @@
 theme = Kanagawa Wave
-font-size = 14
-font-family = SF Mono
-font-style = medium
+
+font-size = 16
+font-family = Iosevka Term Medium
+adjust-cell-height = 20%
+
 window-height = 200
 window-width = 500
 window-padding-x= 5
+
 cursor-style = block
 shell-integration-features = no-cursor
-adjust-cell-height = 35%
-font-feature = -calt
-font-feature = -liga
-font-feature = -dlig
+
+clipboard-read = allow
+clipboard-write = allow
